@@ -9,6 +9,7 @@ public class DoorTriggerController : MonoBehaviour
         if (other.gameObject.tag == "Player")
         {
             FindObjectOfType<DoorOpener>().OpenDoor();
+            Debug.Log("Trigger");
         }
     }
 }
