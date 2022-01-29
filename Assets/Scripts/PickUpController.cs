@@ -6,9 +6,11 @@ using UnityEngine.AI;
 public class PickUpController : MonoBehaviour
 {
     private NavMeshAgent _agent;
+    private PlayerRotation _playerRotation;
     private Vector3 _positionOnScene;
     private Quaternion _rotationOnScene;
     private Vector3 _lastMousePosition;
+    private float _distanceToPlayer;
     private bool _isPickedUp = false;
     private bool _onHover = false;
     private Vector3 _onPickedUpCubePosition = new Vector3(0.27f, 7.08f, 2.37f);
@@ -16,25 +18,32 @@ public class PickUpController : MonoBehaviour
     private void Start()
     {
         _agent = FindObjectOfType<NavMeshAgent>();
+        _playerRotation = FindObjectOfType<PlayerRotation>();
     }
 
     private void Update()
     {
         if (_onHover && Input.GetKeyDown(KeyCode.F))
         {
-            _agent.isStopped = true;
-            _positionOnScene = transform.position;
-            _rotationOnScene = transform.rotation;
-            _isPickedUp = true;
+            _distanceToPlayer = Vector3.Distance(_agent.transform.position, transform.position);
 
-            switch (gameObject.tag)
+            if (_distanceToPlayer < 1.5f)
             {
-                case "Cube":
-                    transform.position = _onPickedUpCubePosition;
-                    break;
-                case "Knife":
-                    transform.position = _onPickedUpCubePosition;
-                    break;
+                _agent.isStopped = true;
+                _playerRotation.isActive = false;
+                _positionOnScene = transform.position;
+                _rotationOnScene = transform.rotation;
+                _isPickedUp = true;
+
+                switch (gameObject.tag)
+                {
+                    case "Cube":
+                        transform.position = _onPickedUpCubePosition;
+                        break;
+                    case "Knife":
+                        transform.position = _onPickedUpCubePosition;
+                        break;
+                }
             }
         }
 
@@ -58,6 +67,8 @@ public class PickUpController : MonoBehaviour
             transform.rotation = _rotationOnScene;
             _isPickedUp = false;
             _agent.isStopped = false;
+            _playerRotation.isActive = true;
+
         }
     }
 
