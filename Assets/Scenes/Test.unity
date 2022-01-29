@@ -726,8 +726,8 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 2256332385675136467}
-  - component: {fileID: 1448974859782592362}
   - component: {fileID: 1448974859782592363}
+  - component: {fileID: 1448974859782592362}
   m_Layer: 0
   m_Name: Scene
   m_TagString: Untagged
@@ -745,7 +745,7 @@ Animator:
   m_GameObject: {fileID: 1448974859782592361}
   m_Enabled: 1
   m_Avatar: {fileID: 0}
-  m_Controller: {fileID: 9100000, guid: d93a063d30317ae43add51dbe0485e0a, type: 2}
+  m_Controller: {fileID: 9100000, guid: e47258c4b1913144d8b45c54d37b6e6a, type: 2}
   m_CullingMode: 0
   m_UpdateMode: 0
   m_ApplyRootMotion: 0
