@@ -24,7 +24,7 @@ public class PickUpController : MonoBehaviour
     private void Update()
     {
         if (_onHover && Input.GetKeyDown(KeyCode.F))
-        {
+        { 
             _distanceToPlayer = Vector3.Distance(_agent.transform.position, transform.position);
 
             if (_distanceToPlayer < 1.5f)
