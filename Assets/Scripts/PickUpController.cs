@@ -61,7 +61,7 @@ public class PickUpController : MonoBehaviour
             transform.rotation = Quaternion.AngleAxis(delta.magnitude * 0.1f, axis) * transform.rotation;
         }
 
-        if (_isPickedUp && Input.GetKeyDown(KeyCode.Escape))
+        if (_isPickedUp && Input.GetKeyDown(KeyCode.Space))
         {
             transform.position = _positionOnScene;
             transform.rotation = _rotationOnScene;
