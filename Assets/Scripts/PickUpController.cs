@@ -24,7 +24,7 @@ public class PickUpController : MonoBehaviour
     private void Update()
     {
         if (_onHover && Input.GetKeyDown(KeyCode.F))
-        {
+        { 
             _distanceToPlayer = Vector3.Distance(_agent.transform.position, transform.position);
 
             if (_distanceToPlayer < 1.5f)
@@ -61,7 +61,7 @@ public class PickUpController : MonoBehaviour
             transform.rotation = Quaternion.AngleAxis(delta.magnitude * 0.1f, axis) * transform.rotation;
         }
 
-        if (_isPickedUp && Input.GetKeyDown(KeyCode.Escape))
+        if (_isPickedUp && Input.GetKeyDown(KeyCode.Space))
         {
             transform.position = _positionOnScene;
             transform.rotation = _rotationOnScene;
