@@ -28,7 +28,7 @@ public class PlayerKarma : MonoBehaviour
         string[] choices = new string[] {"First Button", "Second Button"};
         goodObjectUI = GameObject.Find(choices[0]);
         goodObjectUI.GetComponentInChildren<Text>().text = goodObjectDescription;
-        badObjectUI.gameObject.SetActive(false);
+        goodObjectUI.gameObject.SetActive(false);
         
         
         badObjectUI = GameObject.Find(choices[1]);

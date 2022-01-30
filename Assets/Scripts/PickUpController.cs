@@ -19,6 +19,8 @@ public class PickUpController : MonoBehaviour
     {
         _agent = FindObjectOfType<NavMeshAgent>();
         _playerRotation = FindObjectOfType<PlayerRotation>();
+        _positionOnScene = transform.position;
+        _rotationOnScene = transform.rotation;
     }
 
     private void Update()
@@ -31,8 +33,7 @@ public class PickUpController : MonoBehaviour
             {
                 _agent.isStopped = true;
                 _playerRotation.isActive = false;
-                _positionOnScene = transform.position;
-                _rotationOnScene = transform.rotation;
+
                 _isPickedUp = true;
 
                 switch (gameObject.tag)
