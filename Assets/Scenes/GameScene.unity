@@ -1513,6 +1513,7 @@ GameObject:
   - component: {fileID: 997893493}
   - component: {fileID: 997893492}
   - component: {fileID: 997893491}
+  - component: {fileID: 997893497}
   m_Layer: 0
   m_Name: Platform
   m_TagString: Untagged
@@ -1574,7 +1575,7 @@ BoxCollider:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 997893490}
   m_Material: {fileID: 0}
-  m_IsTrigger: 0
+  m_IsTrigger: 1
   m_Enabled: 1
   serializedVersion: 2
   m_Size: {x: 1, y: 1, z: 1}
@@ -1642,6 +1643,19 @@ Transform:
   m_Father: {fileID: 0}
   m_RootOrder: 7
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!114 &997893497
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 997893490}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: d71651fe84d31496ebba215efaa6268a, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  player: {fileID: 3179666668236617611}
 --- !u!1 &1489476162
 GameObject:
   m_ObjectHideFlags: 0
@@ -2909,6 +2923,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: dc7a15e9b0da843c79172fce42d6bb6a, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  karmaValue: 0
   uiText: {fileID: 0}
   goodObjectDescription: "\u041F\u043E\u043C\u043E\u0447\u044C \u0434\u043E\u043C\u0443
     \u043F\u0440\u0438\u0441\u0442\u0430\u0440\u0435\u043B\u044B\u0445"

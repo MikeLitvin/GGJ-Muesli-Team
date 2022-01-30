@@ -5,7 +5,7 @@ using UnityEngine.AI;
 
 public class PickUpController : MonoBehaviour
 {
-    private NavMeshAgent _agent;
+    private ClickToMove _ctmScript;
     private PlayerRotation _playerRotation;
     private Vector3 _positionOnScene;
     private Quaternion _rotationOnScene;
@@ -17,7 +17,7 @@ public class PickUpController : MonoBehaviour
 
     private void Start()
     {
-        _agent = FindObjectOfType<NavMeshAgent>();
+        _ctmScript = FindObjectOfType<ClickToMove>();
         _playerRotation = FindObjectOfType<PlayerRotation>();
         _positionOnScene = transform.position;
         _rotationOnScene = transform.rotation;
@@ -27,12 +27,12 @@ public class PickUpController : MonoBehaviour
     {
         if (_onHover && Input.GetKeyDown(KeyCode.F))
         {
-            _distanceToPlayer = Vector3.Distance(_agent.transform.position, transform.position);
+            _distanceToPlayer = Vector3.Distance(_ctmScript.transform.position, transform.position);
             print(_distanceToPlayer);
 
             if (_distanceToPlayer < 2f)
             {
-                _agent.isStopped = true;
+                _ctmScript.enabled = false;
 
                 _isPickedUp = true;
                 transform.position = _onPickedUpPosition;
@@ -70,7 +70,7 @@ public class PickUpController : MonoBehaviour
             transform.position = _positionOnScene;
             transform.rotation = _rotationOnScene;
             _isPickedUp = false;
-            _agent.isStopped = false;
+            _ctmScript.enabled = true;
         }
     }
 
