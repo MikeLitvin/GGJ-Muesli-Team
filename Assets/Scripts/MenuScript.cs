@@ -7,6 +7,6 @@ public class MenuScript : MonoBehaviour
 {
     public void PlayButtonPressed()
     {
-        SceneManager.LoadScene("Scenes/Test");
+        SceneManager.LoadScene("Scenes/GameScene");
     }
 }
