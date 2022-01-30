@@ -15,9 +15,13 @@ public class CharacterAnimationController : MonoBehaviour
 
     void Update()
     {
-        if (_character.velocity.magnitude > 1)
+        if (_character.velocity.magnitude > 0.5)
         {
-            _animator.Play("Armature_Walk");
-        } 
+            _animator.SetBool("Walk", true);
+        }
+        else
+        {
+            _animator.SetBool("Walk", false);
+        }
     }
 }
