@@ -6,7 +6,7 @@ using UnityEngine.UI;
 
 public class PlayerKarma : MonoBehaviour
 {
-    private int karmaValue;
+    public int karmaValue;
     public GameObject uiText;
     
     public string goodObjectDescription;
