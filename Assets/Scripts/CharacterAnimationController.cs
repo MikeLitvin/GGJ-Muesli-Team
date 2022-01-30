@@ -13,9 +13,9 @@ public class CharacterAnimationController : MonoBehaviour
         _animator = GetComponent<Animator>();
     }
 
-    void Update()
+    private void FixedUpdate()
     {
-        if (_character.velocity.magnitude > 0.5)
+        if (_character.velocity.magnitude > 0)
         {
             _animator.SetBool("Walk", true);
         }

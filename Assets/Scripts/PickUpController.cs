@@ -13,7 +13,7 @@ public class PickUpController : MonoBehaviour
     private float _distanceToPlayer;
     private bool _isPickedUp = false;
     private bool _onHover = false;
-    private Vector3 _onPickedUpCubePosition = new Vector3(0.27f, 7.08f, 2.37f);
+    private Vector3 _onPickedUpPosition = new Vector3(4.16f, 2.11f, 3.38f);
 
     private void Start()
     {
@@ -26,25 +26,28 @@ public class PickUpController : MonoBehaviour
     private void Update()
     {
         if (_onHover && Input.GetKeyDown(KeyCode.F))
-        { 
+        {
             _distanceToPlayer = Vector3.Distance(_agent.transform.position, transform.position);
+            print(_distanceToPlayer);
 
-            if (_distanceToPlayer < 1.5f)
+            if (_distanceToPlayer < 2f)
             {
                 _agent.isStopped = true;
-                _playerRotation.isActive = false;
 
                 _isPickedUp = true;
-
-                switch (gameObject.tag)
-                {
-                    case "Cube":
-                        transform.position = _onPickedUpCubePosition;
-                        break;
-                    case "Knife":
-                        transform.position = _onPickedUpCubePosition;
-                        break;
-                }
+                transform.position = _onPickedUpPosition;
+                //switch (gameObject.tag)
+                //{
+                //    case "Cube":
+                //        transform.position = _onPickedUpCubePosition;
+                //        break;
+                //    case "Knife":
+                //        transform.position = _onPickedUpCubePosition;
+                //        break;
+                //    case "Lamp":
+                //        transform.position = _onPickedUpLampPosition;
+                //        break;
+                //}
             }
         }
 
@@ -68,8 +71,6 @@ public class PickUpController : MonoBehaviour
             transform.rotation = _rotationOnScene;
             _isPickedUp = false;
             _agent.isStopped = false;
-            _playerRotation.isActive = true;
-
         }
     }
 
